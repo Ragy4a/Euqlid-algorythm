@@ -1,15 +1,13 @@
 'use strict';
 
-function findGCD (a, b) {
-    if (a < 0 || b < 0) {
-        return 'Numbers must be positive.';
+function findGCD(a, b) {
+    if (a <= 0 || b <= 0 || typeof(a) !== 'number' || typeof(b) !== 'number') {
+        return 'Arguments must be positive integers.';
     }
     while (b !== 0) {
-        let temp = b;
-        b = a % b;
-        a = temp;
+        [a, b] = [b, a % b];
     }
-    return `GCD of these numbers is ${a}.`;
-};
+    return a;
+}
 
-console.log(findGCD(4, 16))
+console.log(findGCD(4, 16));
